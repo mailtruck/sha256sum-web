@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: kitchen
+  name: kitchen
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kitchen
+  template:
+    metadata:
+      labels:
+        app: kitchen
+    spec:
+      containers:
+      - name: kitchen
+        image: mailtruck/kitchen:latest
+        ports:
+        - name: kitchen
+          containerPort: 8080
+          protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kitchen
+spec:
+  ports:
+  - name: kitchen
+    port: 8080
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: kitchen

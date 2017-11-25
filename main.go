@@ -7,12 +7,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello world!")
-
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "hello!")
-	})
-
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	fmt.Println("kitchen enterprises")
+	log.Fatal(http.ListenAndServe(":8080", http.FileServer(http.Dir("./static"))))
 
 }
