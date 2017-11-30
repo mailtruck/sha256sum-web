@@ -1,6 +1,6 @@
-FROM golang
+FROM alpine
 
-ADD hello ./hello
+ADD sha256sum-web ./sha256sum-web
 ADD static ./static
 
-ENTRYPOINT ["./hello"]
+ENTRYPOINT ["./sha256sum-web"]

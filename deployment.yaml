@@ -3,23 +3,23 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   labels:
-    app: kitchen
-  name: kitchen
+    app: sha256sum-web
+  name: sha256sum-web
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kitchen
+      app: sha256sum-web
   template:
     metadata:
       labels:
-        app: kitchen
+        app: sha256sum-web
     spec:
       containers:
-      - name: kitchen
-        image: mailtruck/kitchen:latest
+      - name: sha256sum-web
+        image: mailtruck/sha256sum-web:latest
         ports:
-        - name: kitchen
+        - name: sha256sum-web
           containerPort: 8080
           protocol: TCP
 
@@ -27,12 +27,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: kitchen
+  name: sha256sum-web
 spec:
   ports:
-  - name: kitchen
+  - name: sha256sum-web
     port: 8080
     targetPort: 8080
     protocol: TCP
   selector:
-    app: kitchen
+    app: sha256sum-web

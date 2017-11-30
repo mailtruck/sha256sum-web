@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Kitchen Enterprises</title>
+    <title>Sha256sum generator - Kitchen Enterprises</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <meta charset="utf-8" />
@@ -10,7 +10,14 @@
   <body>
     <div>
       <h2>Kitchen Enterprises</h2>
-      <h1>Hello and welcome</h1>
+      <h1>sha256 generator</h1>
+        <form action="api/sum/v1" method="post">
+          <textarea type="text" name="shaQuery" placeholder="The quick brown fox jumped over the lazy dog"></textarea>
+          <br><br>
+          <!-- real men use break tags -->
+          <input type="submit">
+        </form>
+        <h5><a href="https://github.com/mailtruck/sha256sum-web">view source</a></h5>
     </div>
   </body>
 </html>
